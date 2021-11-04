@@ -29,3 +29,37 @@ export const getAllAvatarCharacters = async (setCharacters) => {
  * - from there, decide what part of res.data to pass to your function parameter (in this case, I passed the entire thing!)
  * - I also deleted my custom CSS from the index.css file so feel free to have fun & play around with the look of your app!
  */
+function format(string) {
+  let words = string.split(" ");
+  return words[words.length-1];
+}
+
+export const getGhibliPeople = async(setPeople) => {
+  const url = "https://api.genshin.dev/characters";
+  const imgUrl = "https://rerollcdn.com/GENSHIN/Characters/";
+  const data = [];
+  return axios
+    .get(url)
+    .then((res) => {
+      for (const [key, value] of res.data.entries()) {
+        axios
+          .get(`${url}/${value}`)
+          .then((res2) => {
+            // name exceptions
+            let imgName = format(res2.data.name);
+            const nameExceptions = {
+              "Traveler": "Traveler%20(Anemo)",
+              "Tao": "Hu Tao",
+              "Shogun": "Raiden",
+            }
+            if (nameExceptions[imgName])
+              imgName = nameExceptions[imgName];
+            res2.data.imgUrl = `${imgUrl}${imgName}.png`;
+            console.log(res2.data.imgUrl);
+            data.push(res2.data);
+            setPeople(data);
+          })
+      }
+    })
+    .catch((e) => {alert(e)});
+}
