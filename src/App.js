@@ -4,7 +4,7 @@ import { app_background } from "./data/markdown";
 
 // import your custom data fetching function
 // TODO: add a data fetching function to the api.js file in the endpoints folder
-import { getGhibliPeople } from "./data/endpoints";
+import { getGenshinPeople } from "./data/endpoints";
 
 const App = () => {
   const [people, setPeople] = useState(null);
@@ -17,7 +17,7 @@ const App = () => {
   useEffect(() => {
     if (!people) {
       // if our characters is null, fetch some data!
-      getGhibliPeople(setPeople);
+      getGenshinPeople(setPeople);
     }
     // don't forget to add every state variable you're monitoring to this array!
   }, [people]);
@@ -46,7 +46,7 @@ const App = () => {
                   {/* Displays name of each character */}
                   <p>{p.name}</p>
                   <h2 className="name">{p.name}</h2>
-                  <img src={p.imgUrl} alt={p.name} width="100px"></img>
+                  <img className="portrait" src={p.imgUrl} alt={p.name} width="200px"></img>
                 </div>
               ))
             ) : (

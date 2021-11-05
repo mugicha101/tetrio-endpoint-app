@@ -34,11 +34,11 @@ function format(string) {
   return words[words.length-1];
 }
 
-export const getGhibliPeople = async(setPeople) => {
+export const getGenshinPeople = async (setPeople) => {
   const url = "https://api.genshin.dev/characters";
   const imgUrl = "https://rerollcdn.com/GENSHIN/Characters/";
   const data = [];
-  return axios
+  await axios
     .get(url)
     .then((res) => {
       for (const [key, value] of res.data.entries()) {
