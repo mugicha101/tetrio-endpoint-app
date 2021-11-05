@@ -1,7 +1,7 @@
 {
   "name": "endpoint-app",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "homepage": "http://mugicha101.github.io/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
