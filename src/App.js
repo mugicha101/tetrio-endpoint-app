@@ -47,9 +47,11 @@ const App = () => {
                 <div className="col-2 character frame" key={idx}>
                   {/* Displays name of each character */}
                   <h2 className="name">{p.name}</h2>
-                  <div className={"rarity-" + p.rarity.toString()}>
-                    <img src={p.imgUrl} alt={p.name} width="200px"></img>
-                  </div>
+                  <a href={"https://genshin-impact.fandom.com/wiki/"+p.name}>
+                    <div className={"rarity-" + p.rarity.toString()}>
+                      <img src={p.imgUrl} alt={p.name} width="200px"></img>
+                    </div>
+                  </a>
                 </div>
               ))
             ) : (
