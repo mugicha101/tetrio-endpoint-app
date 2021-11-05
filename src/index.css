@@ -7,12 +7,11 @@
 *:after {
   box-sizing: inherit;
   box-sizing: border-box;
-  --bg-color: rgb(37, 37, 37);
-  --text-color: #eee;
-  --title-color: rgb(129, 184, 27);
-  --header-color: rgb(173, 204, 33);
-  background-color: var(--bg-color);
+  --text-color: rgb(7, 0, 73);
+  --title-color: rgb(0, 168, 22);
+  --header-color: rgb(255, 255, 255);
   color: var(--text-color);
+  background-color: transparent;
 }
 
 html {
@@ -25,14 +24,29 @@ html {
   scroll-behavior: smooth;
   box-sizing: border-box;
   font-size: 18px;
+  background: url(https://i.imgur.com/AyIbjS8.jpg) no-repeat center center fixed; 
 }
 
 div {
   margin-bottom: 1rem;
 }
-
 .masthead {
   margin-bottom: 2rem;
+}
+
+.frame {
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.rarity-4 {
+  background: radial-gradient(#c300ff 50%, #450057);
+  border-radius: 20px;
+}.rarity-5 {
+  background: radial-gradient(#ffe600 50%, #705c00);
+  border-radius: 20px;
 }
 
 /* body */
@@ -40,6 +54,10 @@ div {
 body {
   box-sizing: border-box;
   min-height: 100%;
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 20pt;
+  margin-left: 10pt;
+  margin-right: 10pt;
 }
 
 /* == HEADERS == */
@@ -117,7 +135,9 @@ h4 {
   text-align: center;
 }
 
-img
-.portrait{
-  max-width: 100%;
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }

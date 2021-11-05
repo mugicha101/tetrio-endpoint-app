@@ -38,7 +38,7 @@ export const getGenshinPeople = async (setPeople) => {
   const url = "https://api.genshin.dev/characters";
   const imgUrl = "https://rerollcdn.com/GENSHIN/Characters/";
   const data = [];
-  await axios
+  axios
     .get(url)
     .then((res) => {
       for (const [key, value] of res.data.entries()) {
@@ -55,9 +55,13 @@ export const getGenshinPeople = async (setPeople) => {
             if (nameExceptions[imgName])
               imgName = nameExceptions[imgName];
             res2.data.imgUrl = `${imgUrl}${imgName}.png`;
-            console.log(res2.data.imgUrl);
             data.push(res2.data);
-            setPeople(data);
+            if (data.length === res.data.length) {
+              data.sort((a,b) => {
+                return b.rarity - a.rarity + 0.5*a.name.localeCompare(b.name);
+              })
+              setPeople(data);
+            }
           })
       }
     })
