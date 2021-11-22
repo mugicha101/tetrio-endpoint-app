@@ -5,7 +5,7 @@ const Header = () => (
   <header className="masthead">
     <div>
       <div>
-        <Link to="/">
+        <Link to="/tetrio-endpoint-app/">
           <h1 className="title">Tetr.io Rankings</h1>
         </Link>
       </div>
