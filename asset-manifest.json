@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/tetrio-endpoint-app/static/css/main.9ee65eb1.chunk.css",
-    "main.js": "/tetrio-endpoint-app/static/js/main.12f1f6f4.chunk.js",
-    "main.js.map": "/tetrio-endpoint-app/static/js/main.12f1f6f4.chunk.js.map",
+    "main.js": "/tetrio-endpoint-app/static/js/main.d592ea88.chunk.js",
+    "main.js.map": "/tetrio-endpoint-app/static/js/main.d592ea88.chunk.js.map",
     "runtime-main.js": "/tetrio-endpoint-app/static/js/runtime-main.57e8dcdc.js",
     "runtime-main.js.map": "/tetrio-endpoint-app/static/js/runtime-main.57e8dcdc.js.map",
     "static/css/2.0ea9d23c.chunk.css": "/tetrio-endpoint-app/static/css/2.0ea9d23c.chunk.css",
@@ -18,6 +18,6 @@
     "static/css/2.0ea9d23c.chunk.css",
     "static/js/2.f383a1cf.chunk.js",
     "static/css/main.9ee65eb1.chunk.css",
-    "static/js/main.12f1f6f4.chunk.js"
+    "static/js/main.d592ea88.chunk.js"
   ]
 }
