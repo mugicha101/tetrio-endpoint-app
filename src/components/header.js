@@ -6,7 +6,7 @@ const Header = () => (
     <div>
       <div>
         <Link to="/">
-          <h1 className="site-title">Genshin Wiki</h1>
+          <h1 className="title">Tetr.io Rankings</h1>
         </Link>
       </div>
     </div>

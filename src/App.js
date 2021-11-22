@@ -5,7 +5,7 @@ import axios from "axios";
 
 // import your custom data fetching function
 // TODO: add a data fetching function to the api.js file in the endpoints folder
-import { getGenshinPeople } from "./data/endpoints";
+import { getData } from "./data/endpoints";
 function format(string) {
   let words = string.split(" ");
   return words[words.length-1];
@@ -20,7 +20,7 @@ const App = () => {
    */
   useEffect(() => {
       // if our characters is null, fetch some data!
-      getGenshinPeople(setPeople);
+      getData(setPeople);
     // don't forget to add every state variable you're monitoring to this array!
   }, []);
 
@@ -46,12 +46,14 @@ const App = () => {
               people.map((p, idx) => (
                 <div className="col-2 character frame" key={idx}>
                   {/* Displays name of each character */}
-                  <h2 className="name">{p.name}</h2>
-                  <a href={"https://genshin-impact.fandom.com/wiki/"+p.name}>
-                    <div className={"rarity-" + p.rarity.toString()}>
-                      <img src={p.imgUrl} alt={p.name} width="200px"></img>
+                  <h2 className="username">{idx+1}</h2>
+                  <h2 className="username">{p.username}</h2>
+                  <a href={`https://ch.tetr.io/u/${p.username}`}>
+                    <div className={"rarity-4"}>
+                      <img src={p.img_src} alt={p.username} width="200px"></img>
                     </div>
                   </a>
+                  <h2 className="username">{`Rating: ${Math.round(p.league.rating*100)/100}`}</h2>
                 </div>
               ))
             ) : (

@@ -34,35 +34,24 @@ function format(string) {
   return words[words.length-1];
 }
 
-export const getGenshinPeople = async (setPeople) => {
-  const url = "https://api.genshin.dev/characters";
-  const imgUrl = "https://rerollcdn.com/GENSHIN/Characters/";
-  const data = [];
+export const getData = async (setPeople) => {
+  const url = "https://ch.tetr.io/api/";
   axios
-    .get(url)
-    .then((res) => {
-      for (const [key, value] of res.data.entries()) {
-        axios
-          .get(`${url}/${value}`)
-          .then((res2) => {
-            // name exceptions
-            let imgName = format(res2.data.name);
-            const nameExceptions = {
-              "Traveler": "Traveler%20(Anemo)",
-              "Tao": "Hu Tao",
-              "Shogun": "Raiden",
-            }
-            if (nameExceptions[imgName])
-              imgName = nameExceptions[imgName];
-            res2.data.imgUrl = `${imgUrl}${imgName}.png`;
-            data.push(res2.data);
-            if (data.length === res.data.length) {
-              data.sort((a,b) => {
-                return b.rarity - a.rarity + 0.5*a.name.localeCompare(b.name);
-              })
-              setPeople(data);
-            }
-          })
+    .get(url + "users/lists/league?limit=50")
+    .then((res) => { // get top rankings
+      console.log(res.data.data);
+      let users = res.data.data.users;
+      let remaining = users.length;
+      for (let user of users) {
+        axios.get(url + "users/" + user.username)
+        .then((res) => {
+          users[res.data.data.user.league.standing-1].img_src = !res.data.data.user.avatar_revision?
+            "https://pbs.twimg.com/profile_images/1286993509573169153/pN9ULwc6_400x400.jpg" :
+            `https://tetr.io/user-content/avatars/${user._id}.jpg`;
+          remaining--;
+          if (remaining === 0)
+            setPeople(users);
+        })
       }
     })
     .catch((e) => {alert(e)});

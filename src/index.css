@@ -24,7 +24,7 @@ html {
   scroll-behavior: smooth;
   box-sizing: border-box;
   font-size: 18px;
-  background: url(https://i.imgur.com/AyIbjS8.jpg) no-repeat center center fixed; 
+  background: url(https://www.wallpaperup.com/uploads/wallpapers/2012/04/02/1939/efa4a21f5ea5834cbbb1b30bc94eb17c.jpg) no-repeat center center fixed; 
 }
 
 div {
@@ -79,13 +79,21 @@ h2,
 h3,
 h4 {
   text-align: center;
-  margin-top: 2rem;
   line-height: 1.2;
 }
 
 h1 {
   font-size: 2.6rem;
   margin: 1rem 1rem 1rem 0;
+}
+h1.title {
+  color: rgba(0,0,0,0.8);
+}
+
+h2.username {
+  color: white;
+  font-size: 1.5vw !important;
+  text-align: center;
 }
 
 h4 {
@@ -140,4 +148,5 @@ img {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+  border-radius: 10%;
 }
